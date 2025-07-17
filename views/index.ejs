@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Schedule a Meeting</title>
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Hey!👋 Let's Connect.</h1>
+    <form action="/schedule" method="POST">
+      <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+      <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+      <textarea id="query" name="query" rows="4" placeholder="Your Query" required></textarea>
+
+      <input type="text" id="location" name="location" placeholder="Your City/Town" required>
+
+      <select id="mode" name="mode" required>
+      <option value="" disabled selected>--Select Meeting Mode--</option>
+      <option value="online">Online</option>
+      <option value="offline">Offline</option>
+      </select> 
+
+      <input type="date" id="date" name="date" placeholder="Meeting Date" required>
+
+      <input type="time" id="time" name="time" placeholder="Meeting Time" min="09:00" max="19:00" required>
+
+      <button type="submit">Schedule Meeting</button>
+    </form>
+  </div>
+
+</body>
+</html>
