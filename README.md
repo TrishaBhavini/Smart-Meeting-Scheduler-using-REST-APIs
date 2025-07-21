@@ -1,71 +1,66 @@
-# 📅 Smart Scheduler: Weather-Aware & Zoom-Ready Meeting Web App
+# Meeting Scheduler WebApp
 
-**Fun meets function!**  
-This is a quirky yet practical Node.js web app where you can schedule meetings — online via **Zoom**, or offline with **weather-based preparation tips**. 🌦️  
-Whether you’re planning a virtual catch-up or an in-person chai meeting, we’ve got you covered — literally, with umbrellas if needed. ☂️
-
-> ⚠️ Offline meeting addresses are **randomly generated** for fun UX and demo purposes — you won’t actually meet someone at a fictional tea stall. 😉
+A practical Node.js web application that allows users to schedule meetings — either **online via Zoom** or **offline with weather-based suggestions**.
 
 ---
 
-## 📚 Index
+## Index
 
-1. [🛠️ Tech Stack & Packages Used](#️-tech-stack--packages-used)  
-2. [🌐 APIs Integrated](#-apis-integrated)  
-3. [📸 Features](#-features)  
-4. [🚀 Setup Instructions](#-setup-instructions)  
-5. [🎯 How to Use the App](#-how-to-use-the-app)  
-6. [🔐 .env Setup](#-env-setup)  
-7. [📖 Resources Used](#-resources-used)  
-8. [🧩 Future Improvements](#-future-improvements)
-
----
-
-## 🛠️ Tech Stack & Packages Used
-
-| Tool / Library     | Purpose |
-|--------------------|---------|
-| **Node.js**        | Backend runtime environment |
-| **Express.js**     | Web framework |
-| **EJS**            | Templating engine for dynamic HTML |
-| **Axios**          | To make HTTP requests (Zoom + Weather APIs) |
-| **body-parser**    | To parse form data |
-| **nodemailer**     | To send email confirmations |
-| **qs**             | To serialize Zoom token request |
-| **dotenv**         | To store and load sensitive credentials |
-| **faker-js/faker** | To generate fake offline addresses for fun |
+1. [Tech Stack](#tech-stack)
+2. [APIs Used](#apis-used)
+3. [Key Features](#key-features)
+4. [Setup Instructions](#setup-instructions)
+5. [Using the App](#using-the-app)
+6. [.env Configuration](#env-configuration)
+7. [Resources](#resources)
+8. [Planned Enhancements](#planned-enhancements)
 
 ---
 
-## 🌐 APIs Integrated
+## Tech Stack
 
-| API | Description |
-|-----|-------------|
-| **Zoom API** | For scheduling Zoom meetings dynamically |
-| **Visual Crossing Weather API** | For fetching daily weather data |
-| **LocationIQ (Optional)** | You may use it to enhance location accuracy or geocode addresses |
-| **Gmail SMTP** | For sending email notifications via Nodemailer |
-
----
-
-## 📸 Features
-
-- Schedule meetings with a custom name, date, time, mode, and location
-- Automatically creates **Zoom meetings** for online mode with all necessary links
-- Generates **fun offline locations** using `faker` library (for demo purposes)
-- Shows **live weather forecast** and offers **customized advice**
-- Sends a **friendly confirmation email** with all meeting details
-- Uses **emojis, icons, and a fun UX tone** throughout the app
+| Tool / Library | Purpose                           |
+| -------------- | --------------------------------- |
+| Node.js        | Backend runtime                   |
+| Express.js     | Web server framework              |
+| EJS            | Templating engine                 |
+| Axios          | HTTP requests                     |
+| body-parser    | Parsing form data                 |
+| nodemailer     | Sending email notifications       |
+| qs             | Encoding Zoom auth requests       |
+| dotenv         | Environment variable management   |
+| faker-js/faker | Generating mock offline addresses |
 
 ---
 
-## 🚀 Setup Instructions
+## APIs Used
+
+| API                 | Usage                                     |
+| ------------------- | ----------------------------------------- |
+| Zoom API            | Automatically create Zoom meetings        |
+| Visual Crossing API | Get weather forecasts                     |
+| Gmail SMTP          | Send confirmation emails using Nodemailer |
+
+---
+
+## Key Features
+
+* Schedule a meeting by filling a simple form.
+* For **online meetings**, auto-generates a Zoom link with details.
+* For **offline meetings**, displays weather forecast and suggestions.
+* Sends a confirmation email with all meeting information.
+* Fun but informative — random addresses used only for demo purposes.
+
+---
+
+## Setup Instructions
 
 ### 1. Clone the Repository
+
 ```bash
-git clone https://github.com/yourusername/meeting-weather-app.git
-cd meeting-weather-app
-````
+git clone https://github.com/TrishaBhavini/meeting-scheduler.git
+cd meeting-scheduler
+```
 
 ### 2. Install Dependencies
 
@@ -73,62 +68,50 @@ cd meeting-weather-app
 npm install
 ```
 
-### 3. Create `.env` file
+### 3. Configure `.env`
 
-```bash
-touch .env
-```
-
-Paste your credentials in `.env` like this:
+Create a `.env` file and add:
 
 ```env
 PORT=3000
 
-# Zoom credentials
 ZOOM_ACCOUNT_ID=your_account_id
 ZOOM_USER_ID=your_zoom_user_email
 ZOOM_CLIENT_ID=your_client_id
 ZOOM_CLIENT_SECRET=your_client_secret
 
-# Weather API
 WEATHER_API_KEY=your_weather_api_key
 
-# Email credentials (App Passwords)
 EMAIL_USER=your_gmail_address
 EMAIL_PASS=your_gmail_app_password
 ```
 
-Make sure `.env` is listed in `.gitignore` before pushing to GitHub.
+Ensure `.env` is listed in `.gitignore`.
 
-### 4. Start the App
+### 4. Run the App
 
 ```bash
 npm start
 ```
 
-Visit `http://localhost:3000` in your browser 🚀
+Visit `http://localhost:3000`
 
 ---
 
-## 🎯 How to Use the App
+## Using the App
 
-1. Open the homepage.
-2. Fill in your **name**, **email**, **preferred mode**, **location**, **date**, and **time**.
-3. Click **Schedule**.
-4. You’ll see:
+1. Fill in meeting details: name, email, location, date, time, and meeting mode.
+2. On submission:
 
-   * For **online meetings**: a Zoom link, meeting ID, and passcode
-   * For **offline meetings**: a fun fake address in the city you chose
-   * In both: the **weather forecast** and a **funny weather tip**
-5. You’ll also receive a **confirmation email** with everything summarized neatly.
+   * Online mode → Zoom link + credentials.
+   * Offline mode → Forecast + generated location + weather tip.
+3. An email with meeting info is sent to the user.
 
 ---
 
-## 🔐 .env Setup
+## .env Configuration
 
-**Important**: Never share or push `.env` to GitHub.
-
-Make sure your `.gitignore` contains:
+Keep your `.env` file private. Include in `.gitignore`:
 
 ```gitignore
 .env
@@ -136,28 +119,22 @@ Make sure your `.gitignore` contains:
 
 ---
 
-## 📖 Resources Used
+## Resources
 
-## 📚 Resources Used
-
-Below are some of the key resources, documentation, and blogs referred during the development of this app:
-
-- 📘 [Zoom API Documentation](https://developers.zoom.us/docs/api/)
-- 🌦️ [Visual Crossing Weather API Documentation](https://www.visualcrossing.com/resources/documentation/weather-api/timeline-weather-api/)
-- 📧 [Blog: How to Send Emails Securely Using Gmail and Node.js](https://edigleyssonsilva.medium.com/how-to-send-emails-securely-using-gmail-and-nodejs-eef757525324)
+* [Zoom API Documentation](https://developers.zoom.us/docs/api/)
+* [Visual Crossing Weather API Docs](https://www.visualcrossing.com/resources/documentation/weather-api/timeline-weather-api/)
+* [How to Send Emails with Gmail and Node.js](https://edigleyssonsilva.medium.com/how-to-send-emails-securely-using-gmail-and-nodejs-eef757525324)
 
 ---
 
-## 🧩 Future Improvements
+## Planned Enhancements
 
-* Store user and meeting info in a database (e.g., MongoDB)
-* Add cancel/reschedule functionality
-* Integrate Google Calendar
-* Map preview for offline meetings using Google Maps or Leaflet
-* Better error handling and retry logic
-* Mobile responsiveness polish
+* Database integration for storing meetings.
+* Reschedule or cancel functionality.
+* Google Calendar sync.
+* Map previews for offline locations.
+* Improved error handling and mobile responsiveness.
 
 ---
 
-### 🧑‍💻 Made with 💖 and a bit of sarcasm by Trisha
-
+**Developed by Trisha Bhavini**
